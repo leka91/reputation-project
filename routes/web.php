@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'landingPage']);
+Route::get('/dashboard/{id}', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::post('/dashboard', [DashboardController::class, 'dashboardPost'])->name('dashboardPost');
