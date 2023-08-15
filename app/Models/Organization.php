@@ -9,6 +9,8 @@ class Organization extends Model
 {
     use HasFactory;
 
+    public $guarded = [];
+
     public function locations()
     {
         return $this->hasMany(Location::class);

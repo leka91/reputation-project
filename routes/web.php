@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'landingPage']);
+Route::get('/', [DashboardController::class, 'landingPage'])->name('landingPage');
 Route::get('/dashboard/{id}', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::post('/dashboard', [DashboardController::class, 'dashboardPost'])->name('dashboardPost');
+Route::get('/dashboard/{id}/location/{locationId}', [DashboardController::class, 'dashboardLocation'])->name('dashboardLocation');

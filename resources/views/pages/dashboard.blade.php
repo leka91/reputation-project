@@ -5,33 +5,76 @@
 @section('content')
     <h2 class="mb-5">What is my locations performance?</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-      </table>
+    <div class="row">
+        <div class="col">
+            @if (session('error'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Warning!</strong> {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="p-3">
+                            <i class="fa-solid fa-trophy fa-xl" style="color: #0dd9a6;"></i>
+                            <span class="ps-3">
+                                Highest Reputation Scores
+                            </span>
+                        </th>
+                        <th scope="col" class="p-3"></th>
+                        <th scope="col" class="p-3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($locations['top5'] as $location)
+                    <tr>
+                        <td class="p-3">
+                            <a href="{{ url("dashboard/{$location['organization_id']}/location/{$location['id']}") }}" title="{{ $location['title'] . '-' . $location['address'] }}">
+                                {{ \Str::limit($location['title'] . '-' . $location['address'], 55) }}
+                            </a>
+                        </td>
+                        <td class="p-3">
+                            <span class="badge" style="background: {{ $location['color'] }}">
+                        </td>
+                        <td class="p-3">{{ $location['total_score'] }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="p-3">
+                            <i class="fa-solid fa-circle-exclamation fa-xl" style="color: #dd2808;"></i>
+                            <span class="ps-3">
+                                Lowest Reputation Scores
+                            </span>
+                        </th>
+                        <th scope="col" class="p-3"></th>
+                        <th scope="col" class="p-3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($locations['bottom5'] as $location)
+                    <tr>
+                        <td class="p-3">
+                            <a href="{{ url("dashboard/{$location['organization_id']}/location/{$location['id']}") }}" title="{{ $location['title'] . '-' . $location['address'] }}">
+                                {{ \Str::limit($location['title'] . '-' . $location['address'], 55) }}
+                            </a>
+                        </td>
+                        <td class="p-3">
+                            <span class="badge" style="background: {{ $location['color'] }}">
+                        </td>
+                        <td class="p-3">{{ $location['total_score'] }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
 @endsection

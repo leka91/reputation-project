@@ -22,9 +22,7 @@ class DashboardController extends Controller
 
     public function dashboard($id)
     {
-        $locations = $this->dashboardService->getLocations($id);
-
-        dd($locations);
+        $locations = $this->dashboardService->getLocationsForDashboard($id);
         
         return view('pages.dashboard', compact('locations'));
     }
@@ -32,11 +30,25 @@ class DashboardController extends Controller
     public function dashboardPost(DashboardPostRequest $request)
     {
         try {
-            $organization = $this->dashboardService->findOrganizationByDomain($request->domain);
+            $organization = $this->dashboardService->findOrganizationByColumn('domain', $request->domain);
 
             return redirect()->route('dashboard', $organization->id);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function dashboardLocation($id, $locationId)
+    {
+        try {
+            $organization = $this->dashboardService->findOrganizationByColumn('id', $id);
+            $location = $this->dashboardService->findLocationByColumn('id', $locationId);
+
+            // dump($location);
+
+            return view('pages.location', compact('location'));
+        } catch (\Exception $e) {
+            return redirect()->route('landingPage')->with('error', $e->getMessage());
         }
     }
 }
