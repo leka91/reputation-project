@@ -18,7 +18,7 @@ I connected to google maps reviews scraper, exported the data in the form of a C
 A list of technologies used within the project:
 
 -   [Laravel](https://laravel.com/): Version 8.75
--   [Laravel Sail](https://laravel.com/): Version 1.23
+-   [Laravel Sail](https://laravel.com/docs/8.x/sail): Version 1.23
 -   [Bootstrap](https://getbootstrap.com/): Version 5.0.2
 -   [Fontawesome](https://fontawesome.com/): Version 6.4.2
 -   [Apexcharts](https://apexcharts.com/): Version 3.41
