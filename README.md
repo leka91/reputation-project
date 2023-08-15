@@ -8,7 +8,7 @@
 
 ---
 
-Reputation test project made with PHP (Laravel) and Bootstrap 5 for frontend.
+Reputation test project made with PHP (Laravel Sail with Docker) and Bootstrap 5 for frontend.
 I connected to google maps reviews scraper, exported the data in the form of a CSV file for technomania (electronic equipment store) which I later used in my database. The project has a landing page where you enter the domain (in this case https://www.tehnomanija.rs/) after which you get to the dashboard page where you can see the best and worst scores of all locations. The addresses of the locations are in the form of a link, and by clicking on it, you can access a single location where you can see basic data and a chart.
 
 ## Technologies
@@ -18,6 +18,7 @@ I connected to google maps reviews scraper, exported the data in the form of a C
 A list of technologies used within the project:
 
 -   [Laravel](https://laravel.com/): Version 8.75
+-   [Laravel Sail](https://laravel.com/): Version 1.23
 -   [Bootstrap](https://getbootstrap.com/): Version 5.0.2
 -   [Fontawesome](https://fontawesome.com/): Version 6.4.2
 -   [Apexcharts](https://apexcharts.com/): Version 3.41
