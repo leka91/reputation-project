@@ -8,8 +8,7 @@
 
 ---
 
-Reputation test project made with PHP (Laravel Sail with Docker) and Bootstrap 5 for frontend.
-I connected to google maps reviews scraper, exported the data in the form of a CSV file for technomania (electronic equipment store) which I later used in my database. The project has a landing page where you enter the domain (in this case https://www.tehnomanija.rs/) after which you get to the dashboard page where you can see the best and worst scores of all locations. The addresses of the locations are in the form of a link, and by clicking on it, you can access a single location where you can see basic data and a chart.
+Reputation test project made with PHP (Laravel Sail with Docker) and Bootstrap 5 for frontend. I connected to google maps reviews scraper, exported the data in the form of a CSV file for technomania (electronic equipment store) which I later used in my database. The project has a landing page where you enter the domain (in this case https://www.tehnomanija.rs/) after which you get to the dashboard page where you can see the best and worst scores of all locations. The addresses of the locations are in the form of a link, and by clicking on it, you can access a single location where you can see basic data and a chart. For score calculation, i've made a command - PHP script to fill in scores. Scores are calculated by determining position (index) of a parameter score among other scores in sorted array, in other words percentile (score relative to other locations). Next step is calculating average score (overall score for each location), normalization (applying new range 0 - 1000) and setting the appropriate color for overall score.
 
 ## Technologies
 
